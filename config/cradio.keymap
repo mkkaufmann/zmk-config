@@ -21,6 +21,14 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+        nk: not_so_sticky_key {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NOT_SO_STICKY_KEY";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&sk>;
+        };
     };
 
     conditional_layers {
