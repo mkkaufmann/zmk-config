@@ -51,6 +51,16 @@
             quick-release;
             release-after-ms = <STICKY_KEY_TIMEOUT>;
         };
+        // A hold-tap that activates without delay (like `&mo`)
+        mo_tap: mo_with_tap {
+          compatible = "zmk,behavior-hold-tap";
+          label = "MO_WITH_TAP";
+          #binding-cells = <2>;
+          tapping_term_ms = <0>;
+          retro-tap;
+          flavor = "hold-preferred";
+          bindings = <&mo>, <&kp>;
+        };
     };
 
     conditional_layers {
