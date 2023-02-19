@@ -85,7 +85,7 @@
         //│  Q       │  J       │  V       │  D       │  K       │   │  X       │  H       │ / ?      │ , <      │ . >      │
             &kp Q      &kp J      &kp V      &kp D      &kp K          &kp X      &kp H      &kp FSLH  &kp COMMA    &kp DOT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             MO(NUM)  &skp LSHIFT      &kp SPACE   MO(SYM)
+                                             MO(NUM)  &skq LSHIFT      &kp SPACE   MO(SYM)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
