@@ -94,7 +94,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ SLCT ALL │  /       │  *       │  =       │  +       │   │ ENTER    │ 7        │ 8        │ 9        │  %       │
-            &kp LC(A)  &kp FLSH  &kp ASTRK  &kp EQUAL   &kp PLUS       &kp RET   &kp N7     &kp N8     &kp N9    &kp PRCNT
+            &kp LC(A)  &kp FSLH  &kp ASTRK  &kp EQUAL   &kp PLUS       &kp RET   &kp N7     &kp N8     &kp N9    &kp PRCNT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ CTRL.    │  ALT     │  CMD     │  SHIFT   │   FIND   │   │ 3.       │ 0.       │ 1.       │ 2.       │BACKSPACE │
             &nk LCTRL  &nk LALT   &nk LCMD   &nk LSHFT  &kp LC(F)      &kp N3     &kp N0    &kp N1      &kp N2     &kp BSPC
