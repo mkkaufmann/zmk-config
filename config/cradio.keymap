@@ -100,7 +100,7 @@
             &nk LCTRL  &nk LALT   &nk LCMD   &nk LSHFT  &kp LC(F)      &kp N3     &kp N0    &kp N1      &kp N2     &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ UNDO     │  CUT     │  COPY    │  PASTE   │  -       │   │  ^       │  4       │ 5        │ 6        │  DELETE  │
-            &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp MINUS      &kp CARET   &kp N4     &kp N5     &kp N6     &DEL
+            &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp MINUS      &kp CARET   &kp N4     &kp N5     &kp N6     &kp DEL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
