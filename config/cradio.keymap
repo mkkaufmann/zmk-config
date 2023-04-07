@@ -128,7 +128,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-            &kp LC(A) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &reset     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END   &kp ESC
+            &kp LC(A) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &bootloader     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END   &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
           &nk LCTRL LCTRL  &nk LALT LALT  &nk LCMD LCMD  &nk LSHFT LSHFT &kp LC(F)    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &kp DEL
