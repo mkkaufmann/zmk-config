@@ -76,8 +76,8 @@
         default_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  W       │  L       │  Y       │  P       │  B       │   │  Z       │  F       │  O       │  U       │  P       │
-            &kp W      &kp L      &kp Y      &kp P      &kp B          &kp Z      &kp F      &kp O      &kp U      &kp P
+        //│  W       │  L       │  Y       │  P       │  B       │   │  Z       │  F       │  O       │  U       │  '       │
+            &kp W      &kp L      &kp Y      &kp P      &kp B          &kp Z      &kp F      &kp O      &kp U      &kp SQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  C       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  A       │
             &kp C       &kp R      &kp S       &kp T     &kp G          &kp M      &kp N       &kp E     &kp I       &kp A
