@@ -103,7 +103,7 @@
         
             &kp BSLH   &kp SEMI  &kp EXCL   &kp LPAR   &kp RPAR         &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
        
-            &kp TILDE  &kp COLON     &kp AT  &kp LBRC   &kp RBRC         &trans   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
+            &kp TILDE  &kp COLON     &kp AT  &kp LBRC   &kp RBRC         &bt BT_CLR   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
        
                                              &trans     &trans         &trans     &trans
         
