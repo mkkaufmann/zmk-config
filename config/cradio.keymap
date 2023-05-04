@@ -113,7 +113,7 @@
         tri_layer {
             bindings = <
             &kp LC(A) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &bootloader        &kp HOME  &kp PG_DN  &kp PG_UP   &kp END   &kp ESC
-          &nk LCTRL LCTRL  &nk LALT LALT  &nk LCMD LCMD  &nk LSHFT LSHFT      &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
+          &nk LCTRL LCTRL  &nk LALT LALT  &nk LCMD LCMD  &nk LSHFT LSHFT       &kp LC(F) &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
             &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V) &bt BT_SEL 0           &bt BT_NXT   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
                                              &trans     &trans                &trans     &trans
             >;
