@@ -78,6 +78,27 @@
             key-positions = <16 17>;
             bindings = <&kp ESC>;
         };
+        combo_eq {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp EQUAL>;
+        };
+        combo_right_arrow {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&ZM_right_arrow>;
+        };
+    };
+    
+    macros {
+        right_arrow: right_arrow {
+            label = "ZM_right_arrow";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp MINUS &kp GT>
+                ;
+        };
     };
 
     keymap {
