@@ -70,7 +70,16 @@
             then-layer = <3>;
         };
     };
-    
+    macros {
+        right_arrow: right_arrow {
+            label = "ZM_right_arrow";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp MINUS &kp GT>
+                ;
+        };
+    };
     combos {
         compatible = "zmk,combos";
         combo_esc {
@@ -90,16 +99,7 @@
         };
     };
     
-    macros {
-        right_arrow: right_arrow {
-            label = "ZM_right_arrow";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp MINUS &kp GT>
-                ;
-        };
-    };
+    
 
     keymap {
         compatible = "zmk,keymap";
