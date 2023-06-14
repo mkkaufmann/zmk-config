@@ -82,19 +82,14 @@
     };
     combos {
         compatible = "zmk,combos";
-        combo_esc {
-            timeout-ms = <30>;
-            key-positions = <16 17>;
-            bindings = <&kp ESC>;
-        };
         combo_eq {
             timeout-ms = <30>;
-            key-positions = <12 13>;
+            key-positions = <2 3>;
             bindings = <&kp EQUAL>;
         };
         combo_right_arrow {
             timeout-ms = <30>;
-            key-positions = <17 18>;
+            key-positions = <7 8>;
             bindings = <&right_arrow>;
         };
     };
