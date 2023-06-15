@@ -139,11 +139,11 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog?
 )
 
-#define S_UNDO &kp C_AC_UNDO
-#define S_CUT &kp C_AC_CUT
-#define S_COPY &kp C_AC_COPY
-#define S_PASTE &kp C_AC_PASTE
-#define S_REDO &kp C_AC_REDO
+#define S_UNDO &kp LC(Z)
+#define S_CUT &kp LC(X)
+#define S_COPY &kp LC(C)
+#define S_PASTE &kp LC(V)
+#define S_REDO &kp LC(LS(Z))
 
 / {
     behaviors {
