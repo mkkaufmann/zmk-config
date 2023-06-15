@@ -58,6 +58,12 @@
     usage-pages = <HID_USAGE_KEY HID_USAGE_CONSUMER>; // repeat all keys
 };
 
+// Alt+Tab swapper, requires PR #1366
+ZMK_BEHAVIOR(swapper, tri_state,
+    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+    ignored-key-positions = <LM1>; // shift-alt-tab 
+)
+
 &sk { // sticky-key
     release-after-ms = <3000>;  // release after timeout
     quick-release;              // no double capitalization when rolling ke
@@ -132,6 +138,12 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <300>; 
     bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog?
 )
+
+#define S_UNDO &kp C_AC_UNDO
+#define S_CUT &kp C_AC_CUT
+#define S_COPY &kp C_AC_COPY
+#define S_PASTE &kp C_AC_PASTE
+#define S_REDO &kp C_AC_REDO
 
 / {
     behaviors {
@@ -220,12 +232,12 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
         left_layer {
             bindings = <
         
-                                 &kp LC(A)  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET       &kp PLUS   &kp N7     &kp N8     &kp N9    &kp ASTRK
+                                 &swapper  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET       &kp PLUS   &kp N7     &kp N8     &kp N9    &kp ASTRK
          
-            &nk LCTRL LCTRL  &nk LALT LALT  &nk LCMD LCMD  &nk LSHFT LSHFT  &kp LC(F)       &kp EQUAL     &kp N0    &kp N1    &kp N2     &kp N3
+            SK(LCTRL) SK(LALT)  SK(LCMD)  SK(LSHFT)  &kp LC(F)       &kp EQUAL     &kp N0    &kp N1    &kp N2     &kp N3
       
-                                &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LA(TAB)       &kp MINUS   &kp N4     &kp N5     &kp N6     &kp DOT
-        
+                                S_UNDO  S_CUT  S_COPY  S_PASTE  S_REDO      &kp MINUS   &kp N4     &kp N5     &kp N6     &kp DOT
+    
                                                                     &trans     &trans       &trans     &trans
         
             >;
@@ -248,8 +260,8 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
         tri_layer {
             bindings = <
             &kp LC(A) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &bootloader                &kp HOME  &kp PG_DN  &kp PG_UP   &kp END   &kp ESC
-          &nk LCTRL LCTRL  &nk LALT LALT  &nk LCMD LCMD  &nk LSHFT LSHFT &kp LC(F)    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
-            &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V) &bt BT_SEL 0                   &bt BT_NXT   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
+            SK(LCTRL) SK(LALT)  SK(LCMD)  SK(LSHFT)  &kp LC(F)                          &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
+            S_UNDO  S_CUT  S_COPY  S_PASTE  S_REDO                   &bt BT_NXT   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
                                              &trans     &trans                        &trans     &trans
             >;
         };
