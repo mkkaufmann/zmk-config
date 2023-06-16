@@ -222,22 +222,7 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
                 ;
         };
     };
-    combos {
-        compatible = "zmk,combos";
-        combo_eq {
-            timeout-ms = <30>;
-            key-positions = <2 3>;
-            bindings = <&kp EQUAL>;
-        };
-        combo_right_arrow {
-            timeout-ms = <30>;
-            key-positions = <7 8>;
-            bindings = <&right_arrow>;
-        };
-    };
     
-    
-
     keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -301,6 +286,7 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
 #define GLOBAL_COMBO(name, keypos, bindings) LAYER_COMBO(name, keypos, bindings, ALL)
 GLOBAL_COMBO(numl, RB3 RB4, &num_word)
 GLOBAL_COMBO(dot_spc, LH0 RH0, &dot_spc)
+GLOBAL_COMBO(r_arrow, RB1 RB2, &right_arrow)
 
 // vertical sfb combos
 #define VERTICAL_COMBO(keypos, key1, key2) \
