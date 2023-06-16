@@ -244,7 +244,7 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
             bindings = <
             &kp W      &kp L      &kp Y      &kp P      &kp B          &kp Z      &kp F      &kp O      &kp U      &kp SQT
             &kp C       &kp R      &kp S       &kp T     &kp G          &kp M      &kp N       &kp E     &kp I       &kp A
-            &kp Q      &kp J      &kp V      &kp D      &kp K          &kp X      &kp H      &kp FSLH  &kp COMMA    &kb DOT
+            &kp Q      &kp J      &kp V      &kp D      &kp K          &kp X      &kp H      &kp FSLH  &kp COMMA    &kp DOT
                                              SMRT_NUM   &spc_morph     SK_SHFT  SMRT_SYM
             >;
         };
