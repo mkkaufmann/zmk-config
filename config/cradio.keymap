@@ -44,6 +44,71 @@
         }; \
     };
 
+#define MACRO_CHOOSER3(_1, _2, _3, FUNC, ...) FUNC
+#define ZMK_LAYER(...) MACRO_CHOOSER3(__VA_ARGS__, ZMK_LAYER_3_ARGS, ZMK_LAYER_2_ARGS)(__VA_ARGS__)
+#define ZMK_LAYER_2_ARGS(name, layout) \
+    / { \
+        keymap { \
+            compatible = "zmk,keymap"; \
+            layer_ ## name { \
+                label = ZMK_HELPER_STRINGIFY(name); \
+                bindings = <layout>; \
+            }; \
+        }; \
+    };
+#define ZMK_LAYER_3_ARGS(name, layout, sensors) \
+    / { \
+        keymap { \
+            compatible = "zmk,keymap"; \
+            layer_ ## name { \
+                label = ZMK_HELPER_STRINGIFY(name); \
+                bindings = <layout>; \
+                sensor-bindings = <sensors>; \
+            }; \
+        }; \
+    };
+
+/* ZMK_COMBOS */
+
+#define ALL 0xff
+#if !defined COMBO_TERM
+    #define COMBO_TERM 30
+#endif
+#if !defined COMBO_HOOK
+    #define COMBO_HOOK
+#endif
+
+#define MACRO_CHOOSER5(_1, _2, _3, _4, _5, FUNC, ...) FUNC
+#define ZMK_COMBO(...) MACRO_CHOOSER5(__VA_ARGS__, ZMK_COMBO_5_ARGS, ZMK_COMBO_4_ARGS)(__VA_ARGS__)
+#define ZMK_COMBO_4_ARGS(name, combo_bindings, keypos, combo_layers) \
+    ZMK_COMBO_5_ARGS(name, combo_bindings, keypos, combo_layers, COMBO_TERM)
+#define ZMK_COMBO_5_ARGS(name, combo_bindings, keypos, combo_layers, combo_timeout) \
+    / { \
+        combos { \
+            compatible = "zmk,combos"; \
+            combo_ ## name { \
+                timeout-ms = <combo_timeout>; \
+                bindings = <combo_bindings>; \
+                key-positions = <keypos>; \
+                layers = <combo_layers>; \
+                COMBO_HOOK \
+            }; \
+        }; \
+    };
+
+/* ZMK_CONDITIONAL_LAYER */
+
+#define ZMK_CONDITIONAL_LAYER(if_layers, then_layer) \
+    / { \
+        conditional_layers { \
+            compatible = "zmk,conditional-layers"; \
+            tri_layer { \
+                if-layers = <if_layers>; \
+                then-layer = <then_layer>; \
+            }; \
+        }; \
+    };
+
 &caps_word {  
     /delete-property/ ignore-modifiers; // mods deactivate, requires PR #1451
     /delete-property/ ignore-numbers;
@@ -62,6 +127,38 @@
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
     ignored-key-positions = <13>; // shift-alt-tab 
+)
+
+/* ------------------------------- mod-morphs ------------------------------- */
+// tap: comma | shift + tap: semicolon 
+ZMK_BEHAVIOR(comma_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp COMMA>, <&kp SEMICOLON>;
+)
+// tap: dot | shift + tap: colon 
+ZMK_BEHAVIOR(dot_morph, mod_morph,
+    bindings = <&kp DOT>, <&kp COLON>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+// tap: qmark | shift + tap: excl
+ZMK_BEHAVIOR(qmark_morph, mod_morph,
+    bindings = <&kp QMARK>, <&kp EXCL>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// tap: space | shift + tap: dot -> space -> sticky shift
+ZMK_BEHAVIOR(spc_morph, mod_morph,
+    bindings = <&kp SPACE>, <&dot_spc>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(dot_spc, macro,
+    wait-ms = <5>;
+    tap-ms = <5>;
+    bindings = <&dot_morph_cancel &kp SPACE &sk LSFT>;
+)
+ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
+    bindings = <&kp DOT>, <&kp DOT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
 &sk { // sticky-key
@@ -266,4 +363,12 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
             >;
         };
     };
+#undef COMBO_HOOK
+#define COMBO_HOOK global-quick-tap-ms = <50>;
+// combos on every layer
+#define LAYER_COMBO(name, keypos, bindings, layer) ZMK_COMBO(name, bindings, keypos, layer, 50)
+#define GLOBAL_COMBO(name, keypos, bindings) LAYER_COMBO(name, keypos, bindings, ALL)d
+GLOBAL_COMBO(numl, 28 29, &num_word)
+GLOBAL_COMBO(dot_spc, 32 33, &dot_spc)
+
 };
