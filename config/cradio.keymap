@@ -147,6 +147,17 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <300>; 
     bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog?
 )
+// tap: comma | shift + tap: semicolon 
+ZMK_BEHAVIOR(comma_morph, mod_morph,
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    bindings = <&kp COMMA>, <&kp SEMICOLON>;
+)
+// tap: dot | shift + tap: colon 
+ZMK_BEHAVIOR(dot_morph, mod_morph,
+    bindings = <&kp DOT>, <&kp COLON>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
 
 #define S_UNDO &kp LC(Z)
 #define S_CUT &kp LC(X)
@@ -233,8 +244,8 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
             bindings = <
             &kp W      &kp L      &kp Y      &kp P      &kp B          &kp Z      &kp F      &kp O      &kp U      &kp SQT
             &kp C       &kp R      &kp S       &kp T     &kp G          &kp M      &kp N       &kp E     &kp I       &kp A
-            &kp Q      &kp J      &kp V      &kp D      &kp K          &kp X      &kp H      &kp FSLH  &kp COMMA    &kp DOT
-                                             MO(NUM)   &kp SPACE     &kp LSHIFT  MO(SYM)
+            &kp Q      &kp J      &kp V      &kp D      &kp K          &kp X      &kp H      &kp FSLH  &comma_morph    &dot_morph
+                                             SMRT_NUM   &spc_morph     SK_SHFT  SMRT_SYM
             >;
         };
 
@@ -245,7 +256,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
          
             SK(LCTRL) SK(LALT)  SK(LCMD)  SK(LSHFT)  &kp LC(F)       &kp EQUAL     &kp N0    &kp N1    &kp N2     &kp N3
       
-                                S_UNDO  S_CUT  S_COPY  S_PASTE  S_REDO      &kp MINUS   &kp N4     &kp N5     &kp N6     &kp DOT
+                                S_UNDO  S_CUT  S_COPY  S_PASTE  S_REDO      &kp MINUS   &kp N4     &kp N5     &kp N6     &dot_morph
     
                                                                     &trans     &trans       &trans     &trans
         
