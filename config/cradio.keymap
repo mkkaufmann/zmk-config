@@ -302,3 +302,60 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
 GLOBAL_COMBO(numl, RB3 RB4, &num_word)
 GLOBAL_COMBO(dot_spc, LH0 RH0, &dot_spc)
 
+// vertical sfb combos
+#define VERTICAL_COMBO(keypos, key1, key2) \
+    ZMK_BEHAVIOR(macro_vertical_combo_##key1##key2, macro, \
+        wait-ms = <20>; \
+        tap-ms = <20>; \
+        bindings \
+            = <&macro_tap &kp key1> \
+            , <&macro_press &kp key2> \
+            , <&macro_pause_for_release> \
+            , <&macro_release &kp key2> \
+            ; \
+    ) \
+    / { \
+        combos { \
+            compatible = "zmk,combos"; \
+            combo_vertical_combo_##key1##key2 { \
+                timeout-ms = <40>; \
+                layers = <BASE>; \
+                key-positions = <keypos>; \
+                bindings = <&macro_vertical_combo_##key1##key2>; \
+                slow-release;  \
+            }; \
+        }; \
+    };
+
+// disambiguate mashing SFBs
+VERTICAL_COMBO(LT4 LM4, W, C)
+VERTICAL_COMBO(LT3 LM3, R, L)
+VERTICAL_COMBO(LT2 LM2, Y, S)
+VERTICAL_COMBO(LT1 LM1, P, T)
+VERTICAL_COMBO(LT0 LM0, G, B)
+
+VERTICAL_COMBO(LM0 LB0, K, G)
+VERTICAL_COMBO(LM1 LB1, T, D)
+VERTICAL_COMBO(LM2 LB2, V, S)
+//VERTICAL_COMBO(LM3 LB3, R, J)
+VERTICAL_COMBO(LM4 LB4, C, Q)
+
+VERTICAL_COMBO(LM1 LM0, G, T)
+VERTICAL_COMBO(LT1 LT0, P, B)
+VERTICAL_COMBO(LB1 LB0, D, K)
+
+VERTICAL_COMBO(RM1 RM0, M, N)
+//VERTICAL_COMBO(RT1 RT0, Z, F)
+VERTICAL_COMBO(RB1 RB0, X, H)
+
+VERTICAL_COMBO(RT4 RM4, A, APOS)
+VERTICAL_COMBO(RT3 RM3, U, I)
+VERTICAL_COMBO(RT2 RM2, E, O)
+VERTICAL_COMBO(RT1 RM1, N, F)
+VERTICAL_COMBO(RT0 RM0, Z, M)
+
+//VERTICAL_COMBO(RM0 RB0, X, M)
+VERTICAL_COMBO(RM1 RB1, N, H)
+//VERTICAL_COMBO(RM2 RB2, FSLH, E)
+VERTICAL_COMBO(RM3 RB3, I, COMMA)
+VERTICAL_COMBO(RM4 RB4, A, DOT)
