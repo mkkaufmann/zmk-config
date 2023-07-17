@@ -119,12 +119,12 @@ ZMK_BEHAVIOR(sk_mod_gui, hold_tap,
 ZMK_BEHAVIOR(sk_shft, hold_tap,
     flavor = "balanced"; 
     tapping-term-ms = <STICKY_TAP_MS>; 
-    bindings = <&kp>, <&smrt_shft_morph>; 
+    bindings = <&kp LSHFT>, <&smrt_shft_morph>; 
     hold-while-undecided;
 ) 
 ZMK_BEHAVIOR(smrt_shft_morph, mod_morph,
     mods = <(MOD_LSFT)>; // shift + tap: caps word
-    bindings = <&sk_no_lazy LSFT>, <&caps_word>; 
+    bindings = <&kp LSHFT>, <&caps_word>; 
 ) 
 
 // tap: sticky-layer | hold: layer
