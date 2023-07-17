@@ -124,7 +124,7 @@ ZMK_BEHAVIOR(sk_shft, hold_tap,
 ) 
 ZMK_BEHAVIOR(smrt_shft_morph, mod_morph,
     mods = <(MOD_LSFT)>; // shift + tap: caps word
-    bindings = <&kp>, <&caps_word>; 
+    bindings = <&kp LSFT>, <&caps_word>; 
 ) 
 
 // tap: sticky-layer | hold: layer
