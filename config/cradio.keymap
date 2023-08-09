@@ -136,7 +136,7 @@ ZMK_BEHAVIOR(smrt_layer, hold_tap,
     bindings = <&mo>, <&sl>; 
 ) 
 
-// tap: sticky-num | hold: num | double-tap: num-word | triple-tap: num-lock
+// ~~tap: sticky-num~~ | hold: num | double-tap: num-word | triple-tap: num-lock
 #define SMRT_NUM &smrt_num NUM NUM
 ZMK_BEHAVIOR(smrt_num, hold_tap,
     flavor = "hold-preferred"; 
@@ -145,7 +145,7 @@ ZMK_BEHAVIOR(smrt_num, hold_tap,
 ) 
 ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <300>; 
-    bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog?
+    bindings = <&mo NUM>, <&num_word>, <&tog NUM>; // todo: to or tog?
 )
 // tap: comma | shift + tap: semicolon 
 ZMK_BEHAVIOR(comma_morph, mod_morph,
@@ -230,7 +230,7 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
             &kp W      &kp L      &kp Y      &kp P      &kp B          &kp Z      &kp F      &kp O      &kp U      &kp SQT
             &kp C       &kp R      &kp S       &kp T     &kp G          &kp M      &kp N       &kp E     &kp I       &kp A
             &kp Q      &kp J      &kp V      &kp D      &kp K          &kp X      &kp H      &kp FSLH  &kp COMMA    &kp DOT
-                                             SMRT_NUM   &kp SPACE     &kp LSFT  SMRT_SYM
+                                             SMRT_NUM   &kp SPACE     &kp LSFT  &mo SYM
             >;
         };
 
