@@ -15,6 +15,7 @@
 #define NUM 1
 #define SYM 2
 #define UTIL 3
+#define GAME 4
 
 #define MO(LAYER) &mo_tap LAYER F24
 
@@ -264,11 +265,20 @@ ZMK_BEHAVIOR(dot_morph, mod_morph,
 
         tri_layer {
             bindings = <
-            &kp LC(A) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &bootloader                &kp HOME  &kp PG_DN  &kp PG_UP   &kp END   &kp ESC
-            SK(LCTRL) SK(LALT)  SK(LCMD)  SK(LSHFT)  &kp LC(F)                          &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
-            S_UNDO  S_CUT  S_COPY  S_PASTE  S_REDO                   &bt BT_NXT   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
-                                             &trans     &trans                        &trans     &trans
+            &kp LC(A) &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &bootloader       &kp HOME  &kp PG_DN  &kp PG_UP   &kp END   &kp ESC
+            SK(LCTRL) SK(LALT)  SK(LCMD)  SK(LSHFT)  &kp LC(F)               &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &kp ENTER
+            S_UNDO  S_CUT  S_COPY  S_PASTE  S_REDO                           &tog GAME   &kp BSPC   &kp DEL    &kp TAB   &kp UNDER
+                                             &trans     &trans               &trans     &trans
             >;
+        };
+
+        game_layer {
+          bindings = <
+            &kp TAB   &kp Q     &kp W     &kp E     &kp R        &kp T     &kp Y     &kp U     &kp I      &kp O
+            &kp LSHFT &kp A     &kp S     &kp D     &kp F        &kp G     &kp H     &kp J     &kp K      &kp L
+            &kp LCTRL &kp Z     &kp X     &kp C     &kp V        &kp B     &kp N     &kp M     &kp COMMA  &kp DOT
+                                   &kp SPACE  &kp ESC           &kp ENTER  &tog GAME
+          >;
         };
     };
 
